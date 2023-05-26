@@ -1,0 +1,17 @@
+{
+  "extends": ["stylelint-config-standard", "stylelint-config-prettier"],
+  "rules": {
+    "color-named": "never",
+    "color-no-hex": true,
+    "block-no-empty": true,
+    "comment-no-empty": true,
+    "value-keyword-case": "lower",
+    "custom-property-empty-line-before": null,
+    "selector-class-pattern": null,
+    "function-name-case": null,
+    "declaration-empty-line-before": null,
+    "hue-degree-notation": null,
+    "alpha-value-notation": "number"
+  },
+  "ignoreFiles": ["dist/**/*.css", "node_modules/**/**/*.css"]
+}
