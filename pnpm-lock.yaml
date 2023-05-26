@@ -6,6 +6,7 @@ specifiers:
   '@vitejs/plugin-legacy': ^4.0.4
   '@vitejs/plugin-react': ^4.0.0
   axios: ^1.4.0
+  dotenv: ^16.0.3
   eslint: ^8.38.0
   eslint-config-prettier: ^8.8.0
   eslint-plugin-jsx-a11y: ^6.7.1
@@ -25,6 +26,7 @@ specifiers:
 
 dependencies:
   axios: 1.4.0
+  dotenv: 16.0.3
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
   react-router-dom: 6.11.2_biqbaboplfbrettd7655fr4n2y
@@ -2109,6 +2111,11 @@ packages:
     dependencies:
       esutils: 2.0.3
     dev: true
+
+  /dotenv/16.0.3:
+    resolution: {integrity: sha512-7GO6HghkA5fYG9TYnNxi14/7K9f5occMlp3zXAuSxn7CKCxt9xbNWG7yF8hTCSUchlfWSe3uLmlPfigevRItzQ==}
+    engines: {node: '>=12'}
+    dev: false
 
   /electron-to-chromium/1.4.407:
     resolution: {integrity: sha512-5smEvFSFYMv90tICOzRVP7Opp98DAC4KW7RRipg3BuNpGbbV3N+x24Zh3sbLb1T5haGtOSy/hrBfXsWnIM9aCg==}
