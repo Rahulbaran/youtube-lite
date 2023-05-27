@@ -1,4 +1,5 @@
 html {
+  color-scheme: dark light;
   font-size: 75%;
 
   @media screen and (width > 480px) {
