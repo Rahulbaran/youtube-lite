@@ -4,6 +4,10 @@ dayjs.extend(relativeTime);
 
 export default function VideoCard({ video }) {
   const imgs = video.snippet.thumbnails;
+  const videoTitle =
+    video.snippet.title.length > 45
+      ? video.snippet.title.slice(0, 45) + "..."
+      : video.snippet.title.slice(0, 45);
 
   return (
     <div className="card video-card" id={video.id.videoId}>
@@ -20,7 +24,7 @@ export default function VideoCard({ video }) {
       </div>
 
       <div className="card-body">
-        <h4>{video.snippet.title}...</h4>
+        <h4>{videoTitle}</h4>
 
         <div className="video-info">
           <p>{video.snippet.channelTitle}</p>

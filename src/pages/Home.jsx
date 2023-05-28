@@ -1,4 +1,4 @@
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, Link } from "react-router-dom";
 
 /* Components */
 import VideoCard from "../components/VideoCard";
@@ -11,7 +11,9 @@ export default function Home() {
   });
 
   const videoCards = videos.map(video => (
-    <VideoCard video={video} key={video.id.videoId} />
+    <Link to={video.id.videoId} key={video.id.videoId}>
+      <VideoCard video={video} />
+    </Link>
   ));
 
   return <div className="home-wrapper">{videoCards}</div>;
