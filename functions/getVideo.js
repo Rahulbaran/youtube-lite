@@ -2,7 +2,6 @@ import dotenv from "dotenv";
 import axios from "axios";
 dotenv.config();
 
-const VIDEO_URL = process.env.VIDEO_URL;
 const RAPID_API_KEY = process.env.RAPID_API_KEY;
 
 export const handler = async event => {
@@ -10,7 +9,7 @@ export const handler = async event => {
 
   const options = {
     method: "GET",
-    url: VIDEO_URL,
+    url: "https://youtube-v31.p.rapidapi.com/videos",
     params: {
       part: "contentDetails,snippet,statistics",
       id: vId

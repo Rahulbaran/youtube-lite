@@ -1,19 +1,19 @@
 import dotenv from "dotenv";
 import axios from "axios";
-
 dotenv.config();
 
 const RAPID_API_KEY = process.env.RAPID_API_KEY;
 
-export const handler = async () => {
+export const handler = async event => {
+  const vId = event.queryStringParameters.videoId;
+
   const options = {
     method: "GET",
-    url: "https://youtube-v31.p.rapidapi.com/search",
+    url: "https://youtube-v31.p.rapidapi.com/commentThreads",
     params: {
-      relatedToVideoId: "7ghhRHRP6t4",
-      part: "id,snippet",
-      type: "video",
-      maxResults: "50"
+      part: "snippet",
+      videoId: vId,
+      maxResults: "100"
     },
     headers: {
       "X-RapidAPI-Key": RAPID_API_KEY,
@@ -22,11 +22,11 @@ export const handler = async () => {
   };
 
   try {
-    const response = await axios.request(options);
+    const res = await axios.request(options);
 
     return {
       statusCode: 200,
-      body: JSON.stringify({ videos: response.data })
+      body: JSON.stringify({ data: res.data })
     };
   } catch (error) {
     return { statusCode: 500, body: error.toString() };
