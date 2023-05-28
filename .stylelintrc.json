@@ -11,7 +11,8 @@
     "function-name-case": null,
     "declaration-empty-line-before": null,
     "hue-degree-notation": null,
-    "alpha-value-notation": "number"
+    "alpha-value-notation": "number",
+    "no-descending-specificity": null
   },
   "ignoreFiles": ["dist/**/*.css", "node_modules/**/**/*.css"]
 }
