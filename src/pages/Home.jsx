@@ -11,7 +11,7 @@ export default function Home() {
   });
 
   const videoCards = videos.map(video => (
-    <Link to={video.id.videoId} key={video.id.videoId}>
+    <Link to={"video/" + video.id.videoId} key={video.id.videoId}>
       <VideoCard video={video} />
     </Link>
   ));

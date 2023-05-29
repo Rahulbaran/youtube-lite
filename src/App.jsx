@@ -17,7 +17,11 @@ const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<RootLayout />}>
       <Route index element={<Home />} loader={videosLoader} />
-      <Route path="/:videoId" element={<Video />} loader={videoInfoLoader} />
+      <Route
+        path="/video/:videoId"
+        element={<Video />}
+        loader={videoInfoLoader}
+      />
       <Route path="*" element={<NotFound />} />
     </Route>
   )
