@@ -1,11 +1,27 @@
+import { useState } from "react";
 import { useLoaderData } from "react-router-dom";
 
 // Utils
 import formatNum from "../utils/formatNum";
 
+// Components
+import CommentCard from "../components/CommentCard";
+
 export default function Video() {
+  const [comments, setComments] = useState([]);
   const data = useLoaderData().data.items[0];
   const imgs = data.snippet.thumbnails;
+
+  const getComments = async e => {
+    const videoId = e.target.id;
+    const res = await fetch(
+      `/.netlify/functions/getComments?videoId=${videoId}`
+    );
+    const commentsData = await res.json();
+    setComments(commentsData.data.items);
+
+    e.target.setAttribute("disabled", true);
+  };
 
   return (
     <main className="video-wrapper">
@@ -50,22 +66,32 @@ export default function Video() {
           <p className="video-tags">
             {data.snippet.tags
               .map(tag => "#" + tag.split(" ").join(""))
-              .map(tag => (
-                <small>{tag}</small>
+              .map((tag, index) => (
+                <small key={index}>{tag}</small>
               ))}
           </p>
         </div>
       </section>
 
       <section className="video-comments-container">
-        <button className="comment-load-btn" id={data.id}>
+        <button className="comment-load-btn" id={data.id} onClick={getComments}>
           Comments
         </button>
+
+        <div
+          className="comments"
+          style={{ display: comments.length > 0 ? "grid" : "none" }}
+        >
+          {comments.map(comment => (
+            <CommentCard comment={comment} key={comment.id} />
+          ))}
+        </div>
       </section>
     </main>
   );
 }
 
+// Video data loader
 export async function videoInfoLoader({ params }) {
   const res = await fetch(
     `/.netlify/functions/getVideo?videoId=${params.videoId}`
