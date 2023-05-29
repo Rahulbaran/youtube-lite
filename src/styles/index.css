@@ -75,6 +75,8 @@ html {
   /* Video */
   --video-info-bg: var(--swatch-9);
   --video-desc-bg: var(--swatch-9);
+  --video-bg: var(--swatch-10);
+  --comment-bg: var(--swatch-8);
 
   /* Button */
 }
@@ -211,7 +213,6 @@ audio {
   display: grid;
   grid-template-columns: 1fr;
   gap: calc(var(--base-gap) * 1.5);
-  position: sticky;
 }
 
 .video-title h3 {
@@ -287,5 +288,38 @@ audio {
     border: none;
     color: var(--text-2);
     cursor: pointer;
+    margin-block-end: calc(var(--base-margin) * 2);
   }
+}
+
+.comments {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-auto-rows: auto;
+  gap: var(--base-gap);
+  background-color: var(--comment-bg);
+  border-radius: calc(var(--base-br) * 0.25);
+  padding: var(--base-padding);
+}
+
+.comment {
+  padding: calc(var(--base-padding) * 0.5) var(--base-padding);
+  background-color: var(--video-desc-bg);
+}
+
+.author-info {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-block-end: calc(var(--base-margin) * 0.5);
+}
+
+.author-info small {
+  font-size: calc(var(--base-fs) * 0.7);
+}
+
+.comment-label {
+  font-size: calc(var(--base-fs) * 0.85);
+  word-break: break-all;
 }

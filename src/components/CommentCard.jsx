@@ -4,7 +4,6 @@ dayjs.extend(relativeTime);
 
 export default function CommentCard({ comment }) {
   const commentData = comment.snippet.topLevelComment;
-  console.log(commentData);
 
   return (
     <div className="comment" id={comment.id}>
