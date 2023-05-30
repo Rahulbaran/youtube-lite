@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, Link } from "react-router-dom";
 
 // Utils
 import formatNum from "../utils/formatNum";
@@ -41,7 +41,9 @@ export default function Video() {
 
         <div className="video-channel-info">
           <div className="channel">
-            <p className="channel-title">{data.snippet.channelTitle}</p>
+            <Link to={"/channel/" + data.snippet.channelId}>
+              <p className="channel-title">{data.snippet.channelTitle}</p>
+            </Link>
             <small className="channel-subscribers">20k subscribers</small>
           </div>
 
