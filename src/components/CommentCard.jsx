@@ -12,7 +12,7 @@ export default function CommentCard({ comment }) {
         <small>{commentData.snippet.authorDisplayName}</small>
         <small>{dayjs(commentData.snippet.publishedAt).fromNow()}</small>
       </div>
-      <p class="comment-label">{parser(commentData.snippet.textDisplay)}</p>
+      <p className="comment-label">{parser(commentData.snippet.textDisplay)}</p>
     </div>
   );
 }
