@@ -79,6 +79,7 @@ html {
   --comment-bg: var(--swatch-8);
 
   /* Button */
+  --btn-bg: var(--swatch-9);
 }
 
 html,
@@ -97,6 +98,7 @@ body {
 /* Typography */
 :where(h1, h2, h3, h4, h5, h6) {
   color: var(--text-1);
+  font-family: var(--fs-ubuntu);
 
   &:not(h5, h6) {
     line-height: calc(var(--base-lh) * 0.6);
@@ -152,6 +154,10 @@ audio {
     .card-header {
       inline-size: 100%;
       overflow: hidden;
+
+      & > a {
+        display: block;
+      }
     }
 
     .card-header img {
@@ -172,7 +178,7 @@ audio {
       gap: var(--base-gap);
 
       & h4 {
-        font-weight: var(--fw-semi);
+        font-weight: var(--fw-medium);
         line-height: calc(var(--base-lh) * 0.8);
       }
     }
@@ -181,8 +187,10 @@ audio {
       display: flex;
       justify-content: space-between;
 
-      & > * {
+      & > *,
+      & > * > p {
         font-weight: var(--fw-light);
+        font-size: calc(var(--base-fs) * 0.85);
       }
     }
   }
@@ -195,8 +203,8 @@ audio {
         font-size: calc(var(--base-fs) * 0.8);
       }
 
-      .video-info > p {
-        font-size: calc(var(--base-fs) * 0.65);
+      .video-info p {
+        font-size: calc(var(--base-fs) * 0.6);
       }
     }
   }
@@ -230,6 +238,12 @@ audio {
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  .channel {
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--base-gap) * 0.5);
+  }
 
   .channel-title {
     line-height: calc(var(--base-lh) * 0.5);
@@ -322,4 +336,94 @@ audio {
 .comment-label {
   font-size: calc(var(--base-fs) * 0.85);
   word-break: break-all;
+
+  & > * {
+    font-size: calc(var(--base-fs) * 0.85);
+  }
+
+  & a {
+    color: var(--swatch-3);
+  }
+}
+
+/* Channel Page */
+.channel-wrapper {
+  display: grid;
+  justify-items: center;
+  padding-block: calc(var(--base-padding) * 4);
+
+  /* & header {
+    margin-block-end: calc(var(--base-margin) * 5);
+    display: flex;
+    gap: calc(var(--base-gap) * 2);
+
+    & button {
+      font-family: var(--fs-ubuntu);
+      font-size: calc(var(--base-fs) * 1.1);
+      padding: calc(var(--base-padding) * 1.3) calc(var(--base-padding) * 3);
+      color: var(--text-2);
+      background-color: var(--btn-bg);
+      border: none;
+      border-radius: calc(var(--base-br) * 0.15);
+      transition: filter 250ms ease;
+
+      &:hover {
+        cursor: pointer;
+        filter: brightness(150%);
+      }
+    }
+  } */
+}
+
+.channel-home-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: calc(var(--base-gap) * 3);
+
+  .channel-logo,
+  .channel-logo > img {
+    border-radius: 50%;
+  }
+
+  .channel-logo > img {
+    inline-size: 15em;
+    block-size: 15em;
+    filter: drop-shadow(0 0 10px oklch(15% 0.1 0 / 0.35));
+  }
+
+  .channel-label h1 {
+    text-align: center;
+  }
+
+  .channel-url {
+    margin-block-start: var(--base-margin);
+    display: flex;
+    gap: calc(var(--base-gap) * 2);
+  }
+}
+
+.channel-about-section {
+  inline-size: min(720px, 90vw);
+  margin-inline: auto;
+  margin-block-start: calc(var(--base-margin) * 3);
+
+  & > * {
+    padding: calc(var(--base-padding) * 2);
+  }
+
+  & h3 {
+    font-weight: var(--fw-medium);
+    margin-block-end: calc(var(--base-margin) * 0.5);
+  }
+
+  .channel-stats {
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--base-gap) * 0.25);
+
+    & h3 {
+      margin-block-end: calc(var(--base-margin) * 0.25);
+    }
+  }
 }
