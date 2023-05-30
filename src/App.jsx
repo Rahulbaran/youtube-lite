@@ -11,6 +11,7 @@ import RootLayout from "./layouts/RootLayout";
 /* Pages */
 import Home, { videosLoader } from "./pages/Home";
 import Video, { videoInfoLoader } from "./pages/Video";
+import Channel, { channelLoader } from "./pages/Channel";
 import NotFound from "./pages/NotFound";
 
 const router = createBrowserRouter(
@@ -18,10 +19,16 @@ const router = createBrowserRouter(
     <Route path="/" element={<RootLayout />}>
       <Route index element={<Home />} loader={videosLoader} />
       <Route
-        path="/video/:videoId"
+        path="video/:videoId"
         element={<Video />}
         loader={videoInfoLoader}
       />
+      <Route
+        path="channel/:channelId"
+        element={<Channel />}
+        loader={channelLoader}
+      />
+
       <Route path="*" element={<NotFound />} />
     </Route>
   )
