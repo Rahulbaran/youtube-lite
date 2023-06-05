@@ -64,15 +64,17 @@ export default function Video() {
           </div>
         </div>
 
-        <div className="video-description">
-          <p className="video-tags">
-            {data.snippet.tags
-              .map(tag => "#" + tag.split(" ").join(""))
-              .map((tag, index) => (
-                <small key={index}>{tag}</small>
-              ))}
-          </p>
-        </div>
+        {data.snippet.tags && (
+          <div className="video-description">
+            <p className="video-tags">
+              {data.snippet.tags
+                .map(tag => "#" + tag.split(" ").join(""))
+                .map((tag, index) => (
+                  <small key={index}>{tag}</small>
+                ))}
+            </p>
+          </div>
+        )}
       </section>
 
       <section className="video-comments-container">
